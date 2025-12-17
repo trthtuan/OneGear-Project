@@ -1,6 +1,4 @@
-// ==================== 1. XÁC ĐỊNH GIỎ HÀNG CỦA AI ====================
-
-// Biến toàn cục lưu % giảm giá (0 = không giảm, 0.5 = giảm 50%)
+// Check giỏ hàng
 let currentDiscountRate = 0; 
 
 function getCartKey() {
@@ -18,12 +16,12 @@ function saveCart() {
     localStorage.setItem(cartKey, JSON.stringify(cart));
 }
 
-// ==================== 2. HÀM FORMAT TIỀN TỆ ====================
+// ==================== HÀM FORMAT TIỀN TỆ ====================
 function formatMoney(amount) {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
 }
 
-// ==================== 3. HÀM XỬ LÝ MÃ GIẢM GIÁ (LOGIC MỚI) ====================
+// ==================== HÀM XỬ LÝ MÃ GIẢM GIÁ ====================
 function applyCoupon() {
     const couponInput = document.getElementById('coupon-input');
     const code = couponInput.value.trim().toLowerCase(); // Chuyển về chữ thường để check
@@ -34,13 +32,11 @@ function applyCoupon() {
     const huceRegex = /^[0-9]+@st\.huce\.edu\.vn$/;
 
     if (huceRegex.test(code)) {
-        currentDiscountRate = 0.5; // Giảm 50%
+        currentDiscountRate = 0.5;
         alert(`Chấp nhận mã sinh viên HUCE: ${code}\nBạn được giảm 50% tổng đơn hàng!`);
-        
-        // Render lại giỏ hàng để cập nhật giá
         renderCart(); 
     } else {
-        currentDiscountRate = 0; // Reset về 0
+        currentDiscountRate = 0;
         alert("Mã giảm giá không hợp lệ!\nVui lòng nhập đúng định dạng email SV HUCE (vd: 123456@st.huce.edu.vn)");
         renderCart();
     }

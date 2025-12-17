@@ -33,7 +33,7 @@ function updateUserInterface() {
                 Xin chào, ${currentUser.name}
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                <li><a class="dropdown-item" href="./history.html">📦 Lịch sử mua hàng</a></li> <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="./history.html">Lịch sử mua hàng</a></li> <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#" onclick="logoutUser()">Đăng xuất</a></li>
             </ul>
         </li>
@@ -43,20 +43,17 @@ function updateUserInterface() {
     navList.insertAdjacentHTML('beforeend', userMenuHtml);
 }
 
-// ==================== HÀM ĐĂNG XUẤT ====================
-// Hàm này phải khai báo dạng window.logoutUser để HTML gọi được
+// ==================== ĐĂNG XUẤT ====================
 window.logoutUser = function() {
     if(confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
-        // 1. Xóa thông tin người dùng khỏi LocalStorage
+        // Xóa thông tin 
         localStorage.removeItem('ONEGEAR_CURRENT_USER');
         
-        // 2. (Tùy chọn) Xóa giỏ hàng nếu muốn đăng xuất là mất giỏ
-        // localStorage.removeItem('ONEGEAR_CART');
+        // Xóa giỏ hàng
+        localStorage.removeItem('ONEGEAR_CART');
 
-        // 3. Tải lại trang để giao diện quay về như cũ
+        // Tải lại trang
         window.location.reload();
-        
-        // Hoặc chuyển về trang chủ:
-        // window.location.href = 'index.html';
+        window.location.href = 'index.html';
     }
 }

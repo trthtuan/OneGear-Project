@@ -14,7 +14,7 @@
     />
     <link rel="stylesheet" href="css/layout.css" />
     <style>
-      /* CSS riêng cho trang lịch sử */
+      /* CSS riêng cho history */
       .history-section {
         margin-top: 3rem;
         min-height: 60vh;
@@ -96,9 +96,9 @@
             </li>
           </ul>
           <div class="d-flex align-items-center nav-items">
-            <a href="./cart.html"
-              ><i class="fa fa-cart-shopping ms-3 nav-cart"></i
-            ></a>
+            <a href="./cart.html" class="text-dark text-decoration-none">
+              <i class="fa fa-cart-shopping ms-3 nav-cart actived"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -118,9 +118,50 @@
     </section>
 
     <footer class="footer">
-      <div class="container footer-bottom-container">
-        <div class="footer-copyright text-center py-3 text-white">
-          &#169; Copyright 2025 ONEGEAR. All right reserved
+      <div class="container footer-container">
+        <div class="footer-item">
+          <a href="#" class="footer-logo">ONEGEAR</a>
+          <div class="footer-p">
+            Chúng tôi chuyên cung cấp gaming gear chính hãng, giá tốt, bảo hành
+            minh bạch và hỗ trợ khách hàng nhanh chóng. Cam kết mang đến trải
+            nghiệm mua sắm uy tín và tận tâm nhất cho anh em game thủ.
+          </div>
+        </div>
+        <div class="footer-item">
+          <h3 class="footer-title">Hỗ trợ</h3>
+          <ul class="footer-list">
+            <li class="footer-list-item">
+              Số 55 Giải Phóng, Đồng Tâm, Đống Đa, Hà Nội
+            </li>
+            <li class="footer-list-item">cskh@onegear.vn</li>
+            <li class="footer-list-item">+84969015828</li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <h3 class="footer-title">Tài khoản</h3>
+          <ul class="footer-list">
+            <li class="footer-list-item">Tài khoản của tôi</li>
+            <li class="footer-list-item">Đăng nhập / Đăng ký</li>
+            <li class="footer-list-item">Giỏ hàng</li>
+            <li class="footer-list-item">Danh sách yêu thích</li>
+            <li class="footer-list-item">Cửa hàng</li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <h3 class="footer-title">Liên kết nhanh</h3>
+          <ul class="footer-list">
+            <li class="footer-list-item">Chính sách bảo mật</li>
+            <li class="footer-list-item">Điều khoản sử dụng</li>
+            <li class="footer-list-item">Câu hỏi thường gặp</li>
+            <li class="footer-list-item">Liên hệ</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-container">
+          <div class="footer-copyright">
+            &#169; Copyright 2025 ONEGEAR. All right reserved
+          </div>
         </div>
       </div>
     </footer>
@@ -152,9 +193,7 @@
         const allOrders =
           JSON.parse(localStorage.getItem("ONEGEAR_ORDER_HISTORY")) || [];
 
-        // 3. Lọc đơn hàng của user hiện tại (So sánh theo email)
-        // Lưu ý: Logic ở checkout.js lưu cả email người nhận.
-        // Ở đây ta lọc xem email người nhận CÓ TRÙNG với email đăng nhập không.
+        // 3. Lọc đơn hàng của user hiện tại (so sánh email)
         const myOrders = allOrders.filter(
           (order) => order.customer.email === currentUser.email
         );
@@ -200,7 +239,6 @@
                                   order.date
                                 })</span>
                             </div>
-                            <span class="order-status">${order.status}</span>
                         </div>
                         
                         <div class="order-body">
