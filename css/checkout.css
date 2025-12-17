@@ -12,7 +12,7 @@
     color: var(--color-dark, #000);
 }
 
-/* Custom Form Input */
+/* Custom form input */
 .custom-input {
     padding: 1rem;
     font-size: 1.6rem;
@@ -30,7 +30,7 @@
     font-weight: 500;
 }
 
-/* Order Summary Box (Cột bên phải) */
+/* Cột order tổng */
 .order-summary-box {
     background-color: #f9f9f9;
     padding: 3rem;
@@ -66,14 +66,13 @@
 .checkout-item-name {
     display: block;
     font-weight: 500;
-    /* Cắt bớt tên nếu quá dài */
+    /* Cắt bớt tên nếu dài */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 200px;
 }
 
-/* Tổng tiền */
 .total-row {
     font-size: 1.8rem;
 }
@@ -106,9 +105,9 @@
     cursor: pointer;
 }
 
-/* ==================== BANK INFO STYLING ==================== */
+/* ==================== STYLE CHO CHUYỂN KHOẢN  ==================== */
 
-/* Container tổng, thêm chút margin để tách biệt nút radio */
+/* Container tổng*/
 .bank-info-container {
     margin-top: 1.5rem;
     animation: fadeIn 0.3s ease-in-out;
@@ -125,7 +124,7 @@
     max-width: 100%;
 }
 
-/* Header (Tên ngân hàng) */
+/* Tên ngân hàng */
 .bank-header {
     display: flex;
     justify-content: space-between;
@@ -137,7 +136,7 @@
 
 .bank-name {
     font-weight: 700;
-    color: var(--color-primary, #db4444); /* Màu đỏ thương hiệu */
+    color: var(--color-primary, #db4444);
     font-size: 1.6rem;
 }
 
@@ -210,15 +209,15 @@
     text-transform: uppercase;
 }
 
-/* Ghi chú nhỏ bên dưới */
+/* Ghi chú bên dưới */
 .bank-note {
     margin-top: 1.5rem;
     font-size: 1.2rem;
-    color: #28a745; /* Màu xanh lá tạo cảm giác an toàn */
+    color: #28a745;
     font-weight: 500;
 }
 
-/* Hiệu ứng hiện ra nhẹ nhàng */
+/* Hiệu ứng xuất hiện*/
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }

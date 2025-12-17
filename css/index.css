@@ -143,25 +143,23 @@ ul {
 }
 
 .carousel {
-  width: 100%; /* Adjusted to fit alongside filter */
+  width: 100%;
   object-fit: cover;
 }
 
 /* ==================== 4. BRAND GRID ==================== */
 
-/* css/index.css */
-
-/* Style cho tiêu đề THƯƠNG HIỆU */
+/* Style cho tiêu đề thương hiệu  */
 .label_brands {
   text-align: center;
-  font-size: 2.2rem;          /* Kích thước vừa phải, sang trọng */
-  font-weight: 700;           /* In đậm */
-  color: var(--color-dark);   /* Màu đen */
-  text-transform: uppercase;  /* Viết hoa toàn bộ */
-  letter-spacing: 3px;        /* Giãn chữ rộng -> Tạo cảm giác hiện đại */
-  margin-bottom: 3rem;        /* Cách phần logo bên dưới ra */
-  padding-bottom: 12px;       /* Khoảng cách giữa chữ và gạch chân */
-  position: relative;         /* Để định vị gạch chân */
+  font-size: 2.2rem;          
+  font-weight: 700;           
+  color: var(--color-dark);   
+  text-transform: uppercase;  
+  letter-spacing: 3px;        
+  margin-bottom: 3rem;        
+  padding-bottom: 12px;       
+  position: relative;     
   
   /* Reset lại các thuộc tính vị trí cũ để không bị lỗi */
   width: 100%;
@@ -330,8 +328,6 @@ ul {
   justify-content: flex-end;
   margin-top: 0.5rem;
 }
-
-/* css/index.css */
 
 /* 1. Vị trí */
 .sort-area {

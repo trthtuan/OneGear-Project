@@ -1,14 +1,12 @@
-/* ==================== CART STYLES ==================== */
-
 .cart-section {
     margin-top: 5rem;
 }
 
-/* --- Layout Bảng Giỏ Hàng (Dùng Grid) --- */
+/* --- Layout bảng giỏ hàng --- */
 .cart-header,
 .cart-item {
     display: grid;
-    /* Chia cột: Sản phẩm rộng nhất, các cột còn lại bằng nhau, cột xóa nhỏ nhất */
+    /* Chia cột*/
     grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr; 
     align-items: center;
     gap: 1rem;
@@ -52,7 +50,7 @@
     font-size: 1.5rem;
 }
 
-/* Input Số lượng */
+/* Input số lượng */
 .qty-input {
     width: 60px;
     padding: 0.5rem;
@@ -74,7 +72,7 @@
     transform: scale(1.2);
 }
 
-/* --- Nút bấm (Actions) --- */
+/* --- Nút bấm --- */
 .cart-actions {
     display: flex;
     justify-content: space-between;
@@ -115,7 +113,7 @@
     color: var(--color-primary, #db4444);
 }
 
-/* --- Phần dưới (Coupon & Total) --- */
+/* --- Phần dưới --- */
 .coupon-box {
     display: flex;
     gap: 1rem;
@@ -155,9 +153,9 @@
     color: var(--color-primary, #db4444);
 }
 
-/* --- Responsive Mobile --- */
+/* --- Responsive mobile --- */
 @media (max-width: 768px) {
-    .cart-header { display: none; /* Ẩn header trên mobile cho gọn */ }
+    .cart-header { display: none; /* Ẩn header trên mobile */ }
     
     .cart-item {
         grid-template-columns: 1fr; /* Chuyển về 1 cột */

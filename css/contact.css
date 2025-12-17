@@ -72,7 +72,7 @@ header nav ul li {
     margin: 10px auto;
 }
 
-/* Responsive adjustments for form */
+/* Responsive giao diện */
 @media (max-width: 1140px) {
     .contact-container {
         flex-direction: column;
