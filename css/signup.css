@@ -2,35 +2,30 @@
 
 :root {
   --font-main: "Inter", "sans-serif";
-  --color-primary: #db4444; /* Màu đỏ thương hiệu */
+  --color-primary: #db4444;
   --color-dark: #000000;
   --color-gray: #7d8184;
   --color-white: #ffffff;
 }
 
-/* ==================== LOGIN CENTER LAYOUT ==================== */
-
 .sign-container {
     width: 100%;
-    min-height: 70vh; /* Chiều cao vùng đăng nhập */
+    min-height: 70vh; 
     display: flex;
-    align-items: center;     /* Căn giữa dọc */
-    justify-content: center; /* Căn giữa ngang */
+    align-items: center;  
+    justify-content: center; 
     padding: 2rem 0;
 }
 
 .sign-content {
     width: 100%;
-    max-width: 450px; /* Giới hạn chiều rộng form (quan trọng) */
+    max-width: 450px;
     background-color: var(--color-white);
     padding: 4rem;
-    border-radius: 8px; /* Bo góc nhẹ */
-    /* Thêm đổ bóng để form nổi bật trên nền trắng */
+    border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
     border: 1px solid #eee;
 }
-
-/* ==================== FORM STYLES ==================== */
 
 .form-title {
     font-size: 3rem;
@@ -98,11 +93,11 @@
     text-decoration: underline;
 }
 
-/* Responsive cho mobile */
+/* responsive */
 @media only screen and (max-width: 576px) {
     .sign-content {
         padding: 3rem 2rem;
-        box-shadow: none; /* Mobile thì bỏ bóng cho gọn */
+        box-shadow: none;
         border: none;
     }
 }

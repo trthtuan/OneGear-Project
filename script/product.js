@@ -1,6 +1,3 @@
-// script/product.js
-
-// --- 1. KHAI BÁO BIẾN ---
 let currentProduct = null;
 
 function formatMoney(amount) {
@@ -8,7 +5,6 @@ function formatMoney(amount) {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
 }
 
-// --- 2. LẤY SẢN PHẨM TỪ URL ---
 function getProductFromUrl() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -17,7 +13,6 @@ function getProductFromUrl() {
     return dbProducts.find(p => p.id == productId);
 }
 
-// --- 3. HIỂN THỊ CHI TIẾT (ĐÃ THÊM 2 NÚT) ---
 function renderProductDetail() {
     currentProduct = getProductFromUrl();
     const container = document.getElementById('product-detail-container');
@@ -27,12 +22,10 @@ function renderProductDetail() {
         return;
     }
 
-    // Cập nhật Breadcrumb
     const breadcrumbName = document.getElementById('breadcrumb-name');
     if (breadcrumbName) breadcrumbName.textContent = currentProduct.name;
     document.title = `${currentProduct.name} - ONEGEAR`;
 
-    // Xử lý ảnh: Ưu tiên ảnh đơn lẻ, nếu lỗi dùng ảnh mặc định
     const mainImgSrc = currentProduct.image || './img/keyboard/keyboard1.jpg';
 
     const html = `
@@ -95,10 +88,8 @@ function updateQty(change) {
     input.value = val;
 }
 
-// --- 4. HÀM XỬ LÝ GIỎ HÀNG (QUAN TRỌNG) ---
-// Tham số isBuyNow: true (Mua ngay - chuyển trang), false (Thêm vào giỏ - ở lại)
 function addToCart(isBuyNow) {
-    // 1. Xác định key localStorage
+
     const currentUser = JSON.parse(localStorage.getItem('ONEGEAR_CURRENT_USER'));
     let cartKey = 'ONEGEAR_CART_GUEST';
     if (currentUser && currentUser.email) {
@@ -108,13 +99,11 @@ function addToCart(isBuyNow) {
     let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     const qty = parseInt(document.getElementById('productQty').value);
 
-    // 2. Kiểm tra sản phẩm đã có chưa
     const existing = cart.find(i => i.id === currentProduct.id);
     
     if (existing) {
         existing.quantity += qty;
     } else {
-        // Lưu sản phẩm mới
         cart.push({
             id: currentProduct.id,
             name: currentProduct.name,
@@ -124,16 +113,12 @@ function addToCart(isBuyNow) {
         });
     }
 
-    // 3. Lưu lại vào bộ nhớ
     localStorage.setItem(cartKey, JSON.stringify(cart));
-    
-    // 4. ĐIỀU HƯỚNG DỰA TRÊN NÚT BẤM
+
     if (isBuyNow) {
-        // Nếu ấn "MUA NGAY" -> Chuyển sang giỏ hàng luôn
         window.location.href = "./cart.html";
     } else {
-        // Nếu ấn "THÊM VÀO GIỎ" -> Thông báo nhẹ và ở lại trang
-        alert("✅ Đã thêm sản phẩm vào giỏ hàng thành công!");
+        alert("Đã thêm sản phẩm vào giỏ hàng thành công!");
     }
 }
 

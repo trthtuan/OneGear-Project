@@ -1,4 +1,3 @@
-// Check giỏ hàng
 let currentDiscountRate = 0; 
 
 function getCartKey() {
@@ -16,19 +15,17 @@ function saveCart() {
     localStorage.setItem(cartKey, JSON.stringify(cart));
 }
 
-// ==================== HÀM FORMAT TIỀN TỆ ====================
+// format tiền 
 function formatMoney(amount) {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
 }
 
-// ==================== HÀM XỬ LÝ MÃ GIẢM GIÁ ====================
+// xử lí giảm giá 
 function applyCoupon() {
     const couponInput = document.getElementById('coupon-input');
-    const code = couponInput.value.trim().toLowerCase(); // Chuyển về chữ thường để check
+    const code = couponInput.value.trim().toLowerCase();
 
-    // Regex: Bắt đầu bằng số (mssv), theo sau là @st.huce.edu.vn
-    // ^[0-9]+ : Bắt buộc bắt đầu bằng 1 hoặc nhiều số
-    // @st\.huce\.edu\.vn$ : Bắt buộc kết thúc bằng đuôi email này
+    // Regex
     const huceRegex = /^[0-9]+@st\.huce\.edu\.vn$/;
 
     if (huceRegex.test(code)) {
@@ -42,18 +39,17 @@ function applyCoupon() {
     }
 }
 
-// ==================== 4. RENDER GIỎ HÀNG & TÍNH TOÁN ====================
+// render giỏ hàng 
 function renderCart() {
     cartKey = getCartKey(); 
     cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
     const cartContainer = document.getElementById('cart-items-wrapper');
-    
-    // Các phần tử hiển thị tiền (đã thêm ID ở bước 1)
-    const subTotalEl = document.querySelector('.cart-total-row span:last-child'); // Fallback nếu chưa sửa ID
+
+    const subTotalEl = document.querySelector('.cart-total-row span:last-child');
     const discountRow = document.getElementById('discount-row');
     const discountAmountEl = document.getElementById('discount-amount');
-    const finalTotalEl = document.querySelector('.total-final span:last-child'); // Fallback
+    const finalTotalEl = document.querySelector('.total-final span:last-child');
 
     if (!cartContainer) return;
 
@@ -65,7 +61,7 @@ function renderCart() {
     } else {
         cart.forEach(item => {
             const itemTotal = item.price * item.quantity;
-            subTotalAmount += itemTotal; // Cộng dồn tạm tính
+            subTotalAmount += itemTotal;
     
             const html = `
                 <div class="cart-item" id="item-${item.id}">
@@ -87,33 +83,26 @@ function renderCart() {
         });
     }
 
-    // --- TÍNH TOÁN GIẢM GIÁ ---
+    // tính giảm giá 
     let discountAmount = subTotalAmount * currentDiscountRate;
     let finalTotal = subTotalAmount - discountAmount;
-
-    // --- CẬP NHẬT GIAO DIỆN ---
     
-    // 1. Cập nhật Tạm tính
     if (subTotalEl) subTotalEl.innerText = formatMoney(subTotalAmount);
 
-    // 2. Cập nhật dòng Giảm giá
     if (discountRow && discountAmountEl) {
         if (currentDiscountRate > 0) {
-            discountRow.style.display = 'flex'; // Hiện dòng giảm giá
+            discountRow.style.display = 'flex';
             discountAmountEl.innerText = `-${formatMoney(discountAmount)}`;
         } else {
-            discountRow.style.display = 'none'; // Ẩn dòng giảm giá
+            discountRow.style.display = 'none';
         }
     }
 
-    // 3. Cập nhật Tổng thanh toán
+    // cập nhật tiền cuối
     if (finalTotalEl) finalTotalEl.innerText = formatMoney(finalTotal);
-    
-    // Lưu tổng tiền cuối cùng vào localStorage để trang Checkout dùng (nếu cần)
     localStorage.setItem('ONEGEAR_FINAL_TOTAL', finalTotal);
 }
 
-// ==================== 5. CÁC HÀM XỬ LÝ KHÁC ====================
 function updateQuantity(id, newQuantity) {
     const item = cart.find(p => p.id === id);
     if (item) {
@@ -131,7 +120,6 @@ function removeItem(id) {
         saveCart(); 
         renderCart(); 
         
-        // Nếu xóa hết thì reset mã giảm giá luôn cho hợp lý
         if (cart.length === 0) {
             currentDiscountRate = 0;
             renderCart();

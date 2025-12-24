@@ -1,4 +1,3 @@
-/* ==================== 1. VARIABLES & RESET ==================== */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 :root {
@@ -18,7 +17,7 @@
 }
 
 html {
-  font-size: 10px; /* Base 1rem = 10px */
+  font-size: 10px;
 }
 
 body {
@@ -55,7 +54,6 @@ ul {
   font-size: 3rem;
 }
 
-/* ==================== 2. NAVBAR ==================== */
 .nav {
   width: 100%;
   border-bottom: 1px solid var(--color-gray);
@@ -120,8 +118,6 @@ ul {
   color: var(--color-white);
 }
 
-/* ==================== 3. HEADER & CAROUSEL ==================== */
-
 .header-container {
   width: 100%;
   display: flex;
@@ -147,9 +143,6 @@ ul {
   object-fit: cover;
 }
 
-/* ==================== 4. BRAND GRID ==================== */
-
-/* Style cho tiêu đề thương hiệu  */
 .label_brands {
   text-align: center;
   font-size: 2.2rem;          
@@ -161,23 +154,21 @@ ul {
   padding-bottom: 12px;       
   position: relative;     
   
-  /* Reset lại các thuộc tính vị trí cũ để không bị lỗi */
   width: 100%;
   left: auto;
   bottom: auto;
   transform: none;
 }
 
-/* Tạo gạch chân đỏ nhỏ xíu bên dưới */
 .label_brands::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;                /* Gạch ngắn thôi */
-  height: 3px;                /* Độ dày */
-  background-color: var(--color-primary); /* Màu đỏ chủ đạo */
+  width: 40px;              
+  height: 3px;               
+  background-color: var(--color-primary);
   border-radius: 2px;
 }
 
@@ -218,7 +209,6 @@ ul {
   opacity: 1;
 }
 
-/* ==================== 5. PRODUCT CATEGORY TYPES ==================== */
 .product-type-grid {
   display: flex;
   gap: 2rem;
@@ -265,7 +255,6 @@ ul {
   background-color: #e0e0e0;
 }
 
-/* ==================== 6. ADVANCED FILTERS ==================== */
 .advanced-filter-container {
   display: flex;
   flex-wrap: wrap;
@@ -329,51 +318,44 @@ ul {
   margin-top: 0.5rem;
 }
 
-/* 1. Vị trí */
 .sort-area {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
 }
 
-/* 2. Hộp bao ngoài (Kiểu dáng mới: Vuông bo nhẹ) */
 .sort-box {
     display: flex;
     align-items: center;
     gap: 8px;
     
     background-color: #fff;
-    border: 1px solid #e0e0e0; /* Viền xám nhạt */
-    border-radius: 4px;        /* Bo góc nhẹ (4px) thay vì tròn ủng (30px) */
-    padding: 8px 12px;         /* Padding gọn hơn */
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;    
+    padding: 8px 12px;    
     
-    /* Bỏ bóng đổ nếu muốn giống hệt ảnh (Flat design), hoặc để bóng rất nhẹ */
     box-shadow: none; 
     transition: all 0.2s ease;
     cursor: pointer;
     position: relative;
 }
 
-/* Hiệu ứng khi hover */
 .sort-box:hover {
-    border-color: #bbb; /* Viền đậm hơn chút khi hover */
+    border-color: #bbb;
 }
 
-/* Icon */
 .sort-box i {
-    color: #333; /* Icon màu đậm hơn */
+    color: #333;
     font-size: 1.4rem;
 }
 
-/* Chữ "Xếp theo:" */
 .sort-box span {
     font-size: 1.4rem;
-    color: #333; /* Chữ màu đậm */
+    color: #333;
     font-weight: 500;
     white-space: nowrap;
 }
 
-/* 3. Ô chọn (Select) */
 .sort-select {
     border: none !important;
     outline: none !important;
@@ -381,8 +363,8 @@ ul {
     background-color: transparent;
     
     font-size: 1.4rem;
-    font-weight: 700 !important; /* Chữ đậm */
-    color: #000; /* Màu đen tuyền */
+    font-weight: 700 !important;
+    color: #000;
     cursor: pointer;
     
     -webkit-appearance: none;
@@ -390,32 +372,25 @@ ul {
     appearance: none;
     padding-right: 30px;
     
-    /* Mũi tên nhỏ gọn */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23333' d='M5 6L0 1 1 .3 5 4.3 9 .3 10 1z'/%3E%3C/svg%3e");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 10px;
 }
 
-/* ==================== 7. PRODUCT GRID & CARD ==================== */
-/* ==================== PRODUCT GRID (CĂN GIỮA & HỞ 2 BÊN) ==================== */
-
 .custom-product-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 cột */
-  gap: 25px; /* Tăng khoảng cách giữa các ô lên 25px cho thoáng */
-  
-  /* --- [QUAN TRỌNG] ĐOẠN NÀY GIÚP HỞ 2 BÊN --- */
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 25px;
   width: 100%;
-  max-width: 1200px; /* Giới hạn chiều rộng, không cho giãn hết cỡ */
-  margin-left: auto; /* Tự động đẩy lề trái */
-  margin-right: auto; /* Tự động đẩy lề phải -> Kết quả là nằm giữa */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   
   margin-bottom: 5rem;
-  padding: 0 10px; /* Đệm thêm 1 chút để không bị sát lề khi co nhỏ */
+  padding: 0 10px;
 }
 
-/* Thẻ sản phẩm */
 .product-card-custom {
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -435,11 +410,11 @@ ul {
   transform: translateY(-2px);
 }
 
-/* --- RESPONSIVE (GIỮ NGUYÊN) --- */
+/* responsive */
 @media (max-width: 1200px) {
   .custom-product-grid {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 100%; /* Trên màn nhỏ thì cho full width để tận dụng diện tích */
+    max-width: 100%;
   }
 }
 
@@ -501,8 +476,6 @@ ul {
   justify-content: center;
   margin-bottom: 1rem;
   margin-top: 1.5rem;
-  
-  /* [QUAN TRỌNG] Thêm dòng này để ảnh phóng to không bị tràn ra ngoài khung */
   overflow: hidden; 
 }
 
@@ -510,15 +483,13 @@ ul {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  
-  /* [QUAN TRỌNG] Bộ 3 dòng code chống giật lag */
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Chỉnh lại time cho mượt hơn */
-  will-change: transform; /* Báo trình duyệt ưu tiên render */
-  backface-visibility: hidden; /* Chống rung ảnh */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .product-card-custom:hover .product-img-wrap img {
-  transform: scale(1.1); /* Tăng lên 1.1 nhìn cho rõ hiệu ứng */
+  transform: scale(1.1);
 }
 
 .product-name {
@@ -593,7 +564,6 @@ ul {
   font-size: 1.1rem;
 }
 
-/* ==================== 8. FOOTER ==================== */
 .footer {
   margin-top: 10rem;
   background-color: var(--color-dark);
@@ -631,7 +601,7 @@ ul {
   padding: 1.5rem 0;
 }
 
-/* ==================== 9. RESPONSIVE ==================== */
+/* responsive */
 @media (max-width: 1042px) {
   .header-container {
     flex-direction: column;
@@ -691,37 +661,34 @@ ul {
   .footer-title { font-size: 2rem; }
   .footer-list-item, .footer-p { font-size: 1.5rem; }
 }
-/* css/index.css */
 
-/* Style Tiêu đề Hiện đại & Tối giản */
 .section-title-minimal {
   text-align: center;
-  margin-bottom: 4rem; /* Khoảng cách với phần bên dưới */
+  margin-bottom: 4rem;
   position: relative;
 }
 
 .section-title-minimal h3 {
-  font-size: 2.2rem;          /* Kích thước vừa phải, không quá to */
-  font-weight: 700;           /* In đậm */
-  color: var(--color-dark);   /* Màu đen */
-  text-transform: uppercase;  /* Viết hoa toàn bộ */
-  letter-spacing: 3px;        /* Giãn chữ rộng -> Tạo cảm giác hiện đại (Key point) */
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  letter-spacing: 3px;
   margin: 0;
   padding-bottom: 12px;
   display: inline-block;
   position: relative;
 }
 
-/* Đường gạch chân nhỏ tinh tế */
 .section-title-minimal h3::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;                /* Gạch ngắn thôi, không gạch hết chữ */
-  height: 3px;                /* Độ dày vừa phải */
-  background-color: var(--color-primary); /* Màu đỏ chủ đạo */
+  width: 40px;           
+  height: 3px;          
+  background-color: var(--color-primary);
   border-radius: 2px;
 }
 

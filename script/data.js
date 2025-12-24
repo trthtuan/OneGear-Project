@@ -1,5 +1,5 @@
 const dbProducts = [
-  // ==================== CHUỘT ====================
+  // chuột 
   {
     id: 201,
     name: "Chuột không dây Logitech MX Master 2S",
@@ -91,7 +91,7 @@ const dbProducts = [
     sizeType: "N/A", layoutType: "N/A", purposeType: "Gaming"
   },
 
-  // ==================== BÀN PHÍM ====================
+  // bàn phím 
   {
     id: 101,
     name: "Bàn phím không dây Hyper Hyperspace HS2310US",
@@ -237,7 +237,7 @@ const dbProducts = [
     sizeType: "TKL", layoutType: "ANSI", purposeType: "Gaming"
   },
 
-  // ==================== COMBO ====================
+  // combo
   {
     id: 301,
     name: "Combo Logitech MK240",

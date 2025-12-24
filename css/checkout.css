@@ -1,5 +1,3 @@
-/* ==================== CHECKOUT STYLES ==================== */
-
 .checkout-section {
     margin-top: 3rem;
     margin-bottom: 5rem;
@@ -12,7 +10,6 @@
     color: var(--color-dark, #000);
 }
 
-/* Custom form input */
 .custom-input {
     padding: 1rem;
     font-size: 1.6rem;
@@ -30,7 +27,6 @@
     font-weight: 500;
 }
 
-/* Cột order tổng */
 .order-summary-box {
     background-color: #f9f9f9;
     padding: 3rem;
@@ -38,11 +34,10 @@
     border: 1px solid #eee;
 }
 
-/* Danh sách sản phẩm rút gọn */
 .checkout-items-list {
     margin-bottom: 2rem;
     max-height: 300px;
-    overflow-y: auto; /* Nếu danh sách dài quá thì cuộn */
+    overflow-y: auto;
 }
 
 .checkout-item-row {
@@ -66,7 +61,6 @@
 .checkout-item-name {
     display: block;
     font-weight: 500;
-    /* Cắt bớt tên nếu dài */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -77,7 +71,6 @@
     font-size: 1.8rem;
 }
 
-/* Nút đặt hàng */
 .btn-checkout {
     background-color: var(--color-primary, #db4444);
     color: #fff;
@@ -94,7 +87,6 @@
     background-color: #c93434;
 }
 
-/* Checkbox thanh toán */
 .form-check-input:checked {
     background-color: var(--color-primary, #db4444);
     border-color: var(--color-primary, #db4444);
@@ -105,15 +97,11 @@
     cursor: pointer;
 }
 
-/* ==================== STYLE CHO CHUYỂN KHOẢN  ==================== */
-
-/* Container tổng*/
 .bank-info-container {
     margin-top: 1.5rem;
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Khung thẻ mô phỏng Card */
 .bank-card {
     background-color: #fff;
     border: 1px solid #e0e0e0;
@@ -124,7 +112,6 @@
     max-width: 100%;
 }
 
-/* Tên ngân hàng */
 .bank-header {
     display: flex;
     justify-content: space-between;
@@ -145,7 +132,6 @@
     color: #888;
 }
 
-/* Ảnh QR Code */
 .qr-wrapper {
     margin-bottom: 1.5rem;
     padding: 1rem;
@@ -156,15 +142,14 @@
 }
 
 .qr-img {
-    width: 160px; /* Kích thước cố định vừa phải */
+    width: 160px;
     height: 160px;
     object-fit: contain;
     display: block;
 }
 
-/* Thông tin chi tiết text */
 .account-details {
-    text-align: left; /* Text căn trái cho dễ đọc */
+    text-align: left;
     background-color: #f9f9f9;
     padding: 1.5rem;
     border-radius: 6px;
@@ -197,10 +182,9 @@
     text-align: right;
 }
 
-/* Số tài khoản nổi bật */
 .highlight-text {
     color: var(--color-primary, #db4444);
-    font-size: 1.8rem; /* To hơn bình thường */
+    font-size: 1.8rem;
     font-weight: 800;
     letter-spacing: 1px;
 }
@@ -209,7 +193,6 @@
     text-transform: uppercase;
 }
 
-/* Ghi chú bên dưới */
 .bank-note {
     margin-top: 1.5rem;
     font-size: 1.2rem;
@@ -217,7 +200,6 @@
     font-weight: 500;
 }
 
-/* Hiệu ứng xuất hiện*/
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }

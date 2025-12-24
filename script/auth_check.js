@@ -1,32 +1,23 @@
-// ==================== QUẢN LÝ TRẠNG THÁI ĐĂNG NHẬP/ĐĂNG XUẤT ====================
-
 document.addEventListener('DOMContentLoaded', () => {
     updateUserInterface();
 });
 
 function updateUserInterface() {
-    // 1. Lấy thông tin người dùng hiện tại
     const currentUser = JSON.parse(localStorage.getItem('ONEGEAR_CURRENT_USER'));
-    
-    // Nếu chưa đăng nhập thì thôi, không làm gì cả
+
     if (!currentUser) return;
 
-    // 2. Tìm danh sách menu (ul.navbar-nav)
     const navList = document.querySelector('.navbar-nav');
     if (!navList) return;
 
-    // 3. Ẩn các nút "Đăng ký", "Đăng nhập" cũ đi
-    // Chúng ta tìm các thẻ <a> có chứa chữ Đăng nhập/Đăng ký
     const links = navList.querySelectorAll('a.nav-link');
     links.forEach(link => {
         const text = link.innerText.toLowerCase();
         if (text.includes('đăng ký') || text.includes('đăng nhập') || text.includes('sign up')) {
-            link.parentElement.style.display = 'none'; // Ẩn thẻ li chứa nó
+            link.parentElement.style.display = 'none';
         }
     });
 
-    // 4. Thêm Menu "Xin chào..." và nút Đăng xuất
-    // Sử dụng Dropdown của Bootstrap
     const userMenuHtml = `
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #db4444; font-weight: bold;">
@@ -39,20 +30,14 @@ function updateUserInterface() {
         </li>
     `;
 
-    // Chèn vào cuối danh sách menu
     navList.insertAdjacentHTML('beforeend', userMenuHtml);
 }
 
-// ==================== ĐĂNG XUẤT ====================
+// Đăng xuất 
 window.logoutUser = function() {
     if(confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
-        // Xóa thông tin 
         localStorage.removeItem('ONEGEAR_CURRENT_USER');
-        
-        // Xóa giỏ hàng
         localStorage.removeItem('ONEGEAR_CART');
-
-        // Tải lại trang
         window.location.reload();
         window.location.href = 'index.html';
     }

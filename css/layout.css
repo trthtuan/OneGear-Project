@@ -17,7 +17,7 @@
 }
 
 html {
-  font-size: 10px; /* 1rem = 10px */
+  font-size: 10px;
 }
 
 body {
@@ -61,8 +61,6 @@ ul {
   margin-right: 2rem;
   font-size: 3rem;
 }
-
-/*Navbar Start */
 
 .nav {
   width: 100%;
@@ -148,8 +146,6 @@ ul {
 .form-control:focus {
   box-shadow: none;
 }
-/* Navbar End */
-/* Slider Start */
 
 .swiper-slide {
   cursor: pointer;
@@ -277,9 +273,7 @@ ul {
 .new {
   background-color: var(--color-green) !important;
 }
-/* Products End */
 
-/* Footer Start */
 .footer {
   margin-top: 10rem;
   background-color: var(--color-dark);
@@ -320,7 +314,7 @@ ul {
   padding: 1.5rem 0;
 }
 
-/* Responsive adjustments */
+/* responsive */
 @media (max-width: 768px) {
   .footer-container {
     padding: 3rem 1.5rem;
@@ -359,9 +353,7 @@ ul {
     font-size: 1.5rem;
   }
 }
-/* Footer End */
 
-/* Footer Start */
 .footer {
   margin-top: 10rem;
   background-color: var(--color-dark);
@@ -402,7 +394,7 @@ ul {
   padding: 1.5rem 0;
 }
 
-/* Responsive adjustments */
+/* responsive */
 @media (max-width: 768px) {
   .footer-container {
     padding: 3rem 1.5rem;
